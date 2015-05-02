@@ -1,12 +1,13 @@
 ﻿- Kapitel 1: Einführung und Motivation
-	- Grundmotivation (Methoden auflisten)
-	- Laufzeiten bei binären Suchbäumen
-	- Probleme bei binären Suchbäumen (worst-case)
+	- [Moritz] Grundmotivation (Methoden auflisten)
+	- [Robert] Laufzeiten bei binären Suchbäumen
+	- [Robert] Probleme bei binären Suchbäumen (worst-case)
 	
 - Kapitel 2: Treaps
-	- Definition von Treaps
-	- Existenz einzigartiger Treaps für Schlüssel-Priorität-Paare
-	- Analyse: Laufzeit hängt von Baumhöhe ab
+	- [Robert] Grundlagen von Treaps
+	- [Moritz] Existenz einzigartiger Treaps für Schlüssel-Priorität-Paare
+	- [Moritz] Implementierung der Methoden (in Pseudocode)
+	- [Moritz] Analyse: Laufzeit hängt von Baumhöhe ab
 		- Mulmuley Games für Analyse definieren
 	
 - Kapitel 3: Skip-Lists [vielleicht]
