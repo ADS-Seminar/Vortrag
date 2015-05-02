@@ -1,5 +1,5 @@
 ﻿- Kapitel 1: Einführung und Motivation
-	- [Moritz] Grundmotivation (Methoden auflisten)
+	- [Robert] Grundmotivation (Methoden auflisten)
 	- [Robert] Laufzeiten bei binären Suchbäumen
 	- [Robert] Probleme bei binären Suchbäumen (worst-case)
 	
