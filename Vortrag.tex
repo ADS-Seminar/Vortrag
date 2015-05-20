@@ -76,12 +76,39 @@
 \section{Treaps}
 \subsection{Grundlagen}
 \begin{frame}{Titel}
-    
+    \begin{center}
+        \color{red}{Binary \textbf{Tr}ee} + \color{blue}{H\textbf{eap}} = \textbf{\textcolor{red}{Tr}\textcolor{blue}{eap}}
+    \end{center}
+    \begin{itemize}
+        \item<2-> \textcolor{red}{Schlüssel}
+        \item<3-> \textcolor{blue}{Priorität} (meist Implementierungsdetail)
+    \end{itemize}
+    \vspace{1em}
+    \hfill\only<4->{\includegraphics[page=1,width=.5\textwidth]{img/Beispiel_Treap.pdf}}
 \end{frame}
 
 \subsection{Existenz eindeutiger Treaps}
 \begin{frame}{Titel}
-    
+    \begin{Satz}
+        Für jede Menge $M$ von Schlüssel-Priorität-Paaren mit paarweise unterschiedlichen Schlüsseln und Prioritäten existiert genau ein gültiger Treap.
+    \end{Satz}
+    \begin{proof}
+        Per Induktion über $\left|M\right|$:
+        \raisebox{3em}{\begin{columns}<2->
+            \begin{column}[t]{.65\textwidth}
+                \begin{itemize}
+                \item<3-> \textbf{IA}: leere Menge $\leftrightarrow$ leerer Baum \textcolor[rgb]{0,.7,0}{\Large\checkmark}
+                \item<4-> \textbf{IS}: $t   = \{(k, p) \in M \mid p \text{ minimal}\}$
+                                       $M_< = \{(k, p) \in M \mid k < t_k\}$ \\
+                                       $M_> = \{(k, p) \in M \mid k > t_k\}$
+                \end{itemize}
+            \end{column}
+            \begin{column}[t]{0.35\textwidth}
+                \raisebox{-\totalheight}{\visible<5->{\includegraphics[width=.9\textwidth]{img/Eindeutigkeit_IS.pdf}}}
+                %\includegraphics[width=.9\textwidth]{img/Eindeutigkeit_IS.pdf}
+            \end{column}
+        \end{columns}}
+    \end{proof}
 \end{frame}
 
 \subsection{Implementierung}
