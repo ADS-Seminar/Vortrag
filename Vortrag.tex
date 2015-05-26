@@ -60,16 +60,69 @@
 
 \section{Einführung und Motivation}
 \subsection{Grundmotivation}
-\begin{frame}{Seitentitel}
-    
+\begin{frame}{Grundmotivation}
+    Gesucht: Möglichst schnelle Datenstruktur mit Unterstützung folgender Methoden:
+    \bigskip
+    \begin{itemize}
+        \item<2-> $S$ = MakeSet()
+        \item<3-> Insert($i, S$)
+        \item<4-> Delete($k, S$)
+        \item<5-> Find($k, S$)
+        \item<6-> $S$ = Join$(S_1, i, S_2)$
+        \item<7-> $S$ = Paste$(S_1, S_2)$
+        \item<8-> $S_1, S_2$ = Split$(k, S)$ 
+    \end{itemize}
+    \bigskip
+    \onslide<9-> Bereits bekannt: Binäre Suchbäume
 \end{frame}
+
 \subsection{Laufzeiten bei binären Suchbäumen}
-\begin{frame}
-    
+\begin{frame}{Laufzeiten bei binären Suchbäumen}
+	h = Höhe des Baums
+	\begin{table}
+	    \begin{tabular}{l | c }
+	    Methode & Laufzeit\\
+	    \hline
+	    $S$ = MakeSet() & $O(1)$\\
+	    Insert$(i, S)$ & $O(h)$\\
+	    Delete$(k, S)$ & $O(h)$\\
+	    Find$(k, S)$ & $O(h)$\\
+	    $S$ = Join($S_1, i, S_2$) & STUFF\\
+	    $S$ = Paste($S_1, S_2$) & STUFF\\
+	    $S_1, S_2$ = Split$(k, S)$ & STUFF
+	    %Laufzeiten für Join/Paste/Split?
+	    \end{tabular}
+	\end{table}
 \end{frame}
+
 \subsection{Probleme bei binären Suchbäumen}
-\begin{frame}
-    
+	\begin{frame}{Probleme bei binären Suchbäumen}
+	\begin{itemize}
+	\item Es zeichnet sich ab: Hohe Abhängigkeit von Höhe des Baums $\Rightarrow$ Schwanken zwischen $O(log(n))$ und $O(n)$
+	\item Problem: Binärbäume sind oft unoptimal und extreme Fälle führen zu langen Laufzeiten!
+	\end{itemize}
+	{\only<3->{\includegraphics[width=.5\textwidth] {img/BinaryTree.pdf}}}
+	%Centering?
+\end{frame}
+
+\begin{frame}{Probleme bei binären Suchbäumen}
+	\begin{itemize}
+	\item Problem: Hohe worst-case-Laufzeiten
+	\item Lösung: Vorherige Optimierung (Balancing)?
+	\item Implementierung von Balancing bringt neue Probleme:
+		\begin{itemize}
+		\item Erhöhter Overhead
+		\item Höhere Laufzeiten durch konstantes Updating
+		\item Speichern von zusätzlicher Information möglicherweise notwendig
+		\end{itemize}
+	\bigskip
+	\item Lösungsidee: Balancing durch Randomisieren?
+	\begin{itemize}
+		\item Einfache Implementierung
+		\item Keine weitere Information zu speichern
+		\item Schnelle Ausführung
+	\end{itemize}
+\end{itemize}
 \end{frame}
 
 
