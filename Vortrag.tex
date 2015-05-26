@@ -79,7 +79,6 @@
 \subsection{Laufzeiten bei binären Suchbäumen}
 \begin{frame}{Laufzeiten bei binären Suchbäumen}
     \setbeamercovered{invisible}
-    $h$ = Höhe des Baums
     \begin{table}
         \begin{tabular}{l | c }
         Methode & Laufzeit\\
@@ -88,12 +87,15 @@
         \onslide<3-> Insert$(i, S)$ & $O(h)$ \\
         \onslide<4-> Delete$(k, S)$ & $O(h)$ \\
         \onslide<5-> Find$(k, S)$ & $O(h)$ \\
-        \onslide<6-> $S$ = Join($S_1, i, S_2$) & STUFF \\
-        \onslide<7-> $S$ = Paste($S_1, S_2$) & STUFF \\
-        \onslide<8-> $S_1, S_2$ = Split$(k, S)$ & STUFF 
-        %TODO: Laufzeiten für Join/Paste/Split? -> steht indirekt im Buch (Implementierung)
+        \onslide<6-> $S$ = Join($S_1, i, S_2$) & $O(1)$ \\
+        \onslide<7-> $S$ = Paste($S_1, S_2$) & $O(h_1)$ \\
+        \onslide<8-> $S_1, S_2$ = Split$(k, S)$ & $O(h)$ 
         \end{tabular}
     \end{table}
+    \begin{itemize}
+        \item\onslide<3->$h$ = Höhe des Baums
+        \item\onslide<7->$h_1$ = Höhe des ersten Baums
+    \end{itemize}
 \end{frame}
 
 \subsection{Probleme bei binären Suchbäumen}
@@ -102,7 +104,7 @@
     \item Es zeichnet sich ab: Hohe Abhängigkeit von Höhe des Baums $\Rightarrow$ Schwanken zwischen $O(\log(n))$ und $O(n)$
     \item Problem: Binärbäume sind oft unoptimal und extreme Fälle führen zu langen Laufzeiten!
     \end{itemize}
-    {\only<3->{\includegraphics[width=.5\textwidth] {img/BinaryTree.pdf}}}
+    {\only<3->{\hspace{1.1 in}\includegraphics[width=.5\textwidth] {img/BinaryTree.pdf}}}
     % TODO: Centering? -> würde ich schon machen
 \end{frame}
 
