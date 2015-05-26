@@ -17,7 +17,7 @@
 
 \usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage[linesnumbered,vlined]{algorithm2e}
+\usepackage[vlined]{algorithm2e}
 \DontPrintSemicolon
 
 \theoremstyle{plain}
@@ -90,30 +90,113 @@
 \subsection{Existenz eindeutiger Treaps}
 \begin{frame}{Titel}
     \begin{Satz}
-        Für jede Menge $M$ von Schlüssel-Priorität-Paaren mit paarweise unterschiedlichen Schlüsseln und Prioritäten existiert genau ein gültiger Treap.
+        Für jede Menge $S = \{(k_1,p_1), \dots, (k_n, p_n)\}$ von Schlüssel-Priorität-Paaren mit paarweise unterschiedlichen Schlüsseln und Prioritäten existiert genau ein gültiger Treap.
     \end{Satz}
+    \only<2-5>{
     \begin{proof}
-        Per Induktion über $\left|M\right|$:
-        \raisebox{3em}{\begin{columns}<2->
-            \begin{column}[t]{.65\textwidth}
-                \begin{itemize}
-                \item<3-> \textbf{IA}: leere Menge $\leftrightarrow$ leerer Baum \textcolor[rgb]{0,.7,0}{\Large\checkmark}
-                \item<4-> \textbf{IS}: $t   = \{(k, p) \in M \mid p \text{ minimal}\}$
-                                       $M_< = \{(k, p) \in M \mid k < t_k\}$ \\
-                                       $M_> = \{(k, p) \in M \mid k > t_k\}$
-                \end{itemize}
-            \end{column}
-            \begin{column}[t]{0.35\textwidth}
-                \raisebox{-\totalheight}{\visible<5->{\includegraphics[width=.9\textwidth]{img/Eindeutigkeit_IS.pdf}}}
-                %\includegraphics[width=.9\textwidth]{img/Eindeutigkeit_IS.pdf}
-            \end{column}
+        Per Induktion über $n = \left|S\right|$:
+        \raisebox{3em}{
+        \begin{columns}<2->
+        \begin{column}[t]{.65\textwidth}
+            \begin{itemize}
+            \item<3-> \textbf{IA}: n = 0: \\ leere Menge $\leftrightarrow$ leerer Baum \textcolor[rgb]{0,.7,0}{\Large\checkmark}
+            \item<4-> \textbf{IS}: $t   = \{(k_t, p_t) \in S \mid p_t \text{ minimal}\}$
+                                   $M_< = \{(k_i, p_i) \in S \mid k_i < k_t\}$ \\
+                                   $M_> = \{(k_i, p_i) \in S \mid k_i > k_t\}$
+            \end{itemize}
+        \end{column}
+        \begin{column}[t]{0.35\textwidth}
+            \raisebox{-\totalheight}{\visible<5->{\includegraphics[width=.9\textwidth]{img/Eindeutigkeit_IS.pdf}}}
+        \end{column}
         \end{columns}}
-    \end{proof}
+    \end{proof}}
+    \visible<6->{\begin{Folgerung}
+        Die Reihenfolge, in der Knoten eingefügt oder gelöscht werden, ist für die Struktur eines Treaps irrelevant.
+    \end{Folgerung}}
 \end{frame}
 
 \subsection{Implementierung}
+% TODO: Folie für Rotation
 \begin{frame}{Titel}
-    
+    \begin{columns}<1->
+    \begin{column}{.65\textwidth}<1->
+        \begin{itemize}
+            \item<1> Find($k$, $S$): Normale Suche in einem Binärbaum
+            \item<2> Insert($i$, $S$):
+                \begin{algorithm}[H]
+                    %\Ein{Knoten $i$, Treap $S$}
+                    Füge $i$ als Blatt in $S$ ein \;
+                    \While{$i$.parent.prio $<$ $i$.prio}{
+                        Rotiere $i$ nach oben \;
+                    }
+                \end{algorithm}
+            \item<3> Delete($i$, $S$):
+                \begin{algorithm}[H]
+                    \SetKw{Not}{not}
+                    \While{\Not istBlatt($i$)}{
+                        Rotiere $i$ nach unten \;
+                    }
+                    Lösche Blatt $i$ aus $S$ \;
+                \end{algorithm}
+        \end{itemize}
+    \end{column}
+    \begin{column}{.35\textwidth}<1->
+        \raisebox{-\totalheight}{
+            \only<1>{\includegraphics[width=.8\textwidth]{img/Impl_Find.pdf}} %TODO: Bild fehlt noch
+            \only<2>{\includegraphics[width=.8\textwidth]{img/Impl_Insert.pdf}} %TODO: Bild fehlt noch
+            \only<3>{\includegraphics[width=.8\textwidth]{img/Impl_Delete.pdf}} %TODO: Bild fehlt noch
+        }
+    \end{column}
+    \end{columns}
+% Insert(i, S) // S wird verändert
+% Delete(k, S) // S wird verändert
+% Find(k, S)
+% S = Join(S_1, i, S_2)
+% S = Paste(S_1, S_2)
+% S_1, S_2 = Split(k, S)
+\end{frame}
+
+\begin{frame}{Titel}
+    \begin{columns}<1->
+    \begin{column}{.65\textwidth}<1->
+        \begin{itemize}
+            \item<1> Join($S_1$, $i$, $S_2$):
+                \begin{algorithm}[H]
+                    \SetKw{Or}{or}
+                    $i$.left $\gets S_1$ \;
+                    $i$.right $\gets S_2$ \;
+                    \While{$i$.prio $<$ $i$.left.prio\\ \Or $i$.prio $<$ $i$.right.prio}{
+                        Rotiere $i$ nach unten \;
+                    }
+                    \Return $i$
+                \end{algorithm}
+            \item<2> Paste($S_1$, $S_2$):
+                \begin{algorithm}[H]
+                    $i$ $\gets$ Find($\infty$, $S_1$) \tcp{Maximum}
+                    Delete($i$, $S_1$) \;
+                    \Return Join($S_1$, $i$, $S_2$) \;
+                \end{algorithm}
+            \item<3> Split($k$, $S$):
+                \begin{algorithm}[H]
+                % TODO?
+                    \tcp{Übungsaufgabe ;-)}
+                \end{algorithm}
+        \end{itemize}
+    \end{column}
+    \begin{column}{.35\textwidth}<1->
+        \raisebox{-\totalheight}{
+            \only<1>{\includegraphics[width=.8\textwidth]{img/Impl_Join.pdf}} %TODO: Bild fehlt noch
+            \only<2>{\includegraphics[width=.8\textwidth]{img/Impl_Paste.pdf}} %TODO: Bild fehlt noch
+            \only<3>{\includegraphics[width=.8\textwidth]{img/Impl_Split.pdf}} %TODO: Bild fehlt noch
+        }
+    \end{column}
+    \end{columns}
+% Insert(i, S) // S wird verändert
+% Delete(k, S) // S wird verändert
+% Find(k, S)
+% S = Join(S_1, i, S_2)
+% S = Paste(S_1, S_2)
+% S_1, S_2 = Split(k, S)
 \end{frame}
 
 \subsection{Laufzeitanalyse}

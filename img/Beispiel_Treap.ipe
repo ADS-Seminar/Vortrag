@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.5">
-<info created="D:20150510145008" modified="D:20150519194142" author="Moritz  Beck" subject="Beispiel Treap"/>
+<info created="D:20150510145008" modified="D:20150526202218" author="Moritz  Beck" subject="Beispiel Treap"/>
 <preamble>\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}</preamble>
 <ipestyle name="basic">
@@ -230,19 +230,19 @@ h
 167.379 792.822 l
 </path>
 <text matrix="1 0 0 1 -146.48 17.9393" transformations="translations" pos="320 784" stroke="key" type="label" width="4.981" height="6.42" depth="0" valign="baseline">7</text>
-<text matrix="1 0 0 1 -162.48 24.164" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">1</text>
+<text matrix="1 0 0 1 -162.48 24.164" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">5</text>
 <text matrix="1 0 0 1 -194.411 -29.9918" transformations="translations" pos="320 784" stroke="key" type="label" width="4.981" height="6.42" depth="0" valign="baseline">3</text>
-<text matrix="1 0 0 1 -210.411 -23.7671" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">2</text>
+<text matrix="1 0 0 1 -210.411 -23.7671" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">4</text>
 <path matrix="1 0 0 1 96 -16" stroke="black" fill="white">
 11.2185 0 0 11.2185 128 768 e
 </path>
 <text matrix="1 0 0 1 -101.041 -29.9918" transformations="translations" pos="320 784" stroke="key" type="label" width="9.963" height="6.42" depth="0" valign="baseline">11</text>
-<text matrix="1 0 0 1 -114.411 -23.7671" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">4</text>
+<text matrix="1 0 0 1 -114.411 -23.7671" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">2</text>
 <path matrix="1 0 0 1 32 -64" stroke="black" fill="white">
 11.2185 0 0 11.2185 128 768 e
 </path>
 <text matrix="1 0 0 1 -162.411 -77.9918" transformations="translations" pos="320 784" stroke="key" type="label" width="4.981" height="6.42" depth="0" valign="baseline">5</text>
-<text matrix="1 0 0 1 -178.411 -71.7671" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">5</text>
+<text matrix="1 0 0 1 -178.411 -71.7671" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">1</text>
 <path matrix="1 0 0 1 -32 -64" stroke="black" fill="white">
 11.2185 0 0 11.2185 128 768 e
 </path>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.5">
-<info created="D:20150510145008" modified="D:20150519171108" author="Moritz  Beck" subject="Tree Rotation"/>
+<info created="D:20150510145008" modified="D:20150526192606" author="Moritz  Beck" subject="Tree Rotation"/>
 <preamble>\usepackage[ngerman]{babel}</preamble>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
@@ -321,7 +321,7 @@ h
 288 768 m
 240 768 l
 </path>
-<text matrix="1 0 0 1 -0.488503 -39.0803" transformations="translations" pos="236.81 792.844" stroke="black" type="label" width="58.614" height="6.918" depth="0" valign="baseline">Linksrotation</text>
-<text matrix="1 0 0 1 -5.37354 40.5458" transformations="translations" pos="237.787 751.321" stroke="black" type="label" width="63.872" height="6.918" depth="0" valign="baseline">Rechtsrotation</text>
+<text matrix="1 0 0 1 -0.488503 -39.0803" transformations="translations" pos="236.81 792.844" stroke="blue" type="label" width="58.614" height="6.918" depth="0" valign="baseline">Linksrotation</text>
+<text matrix="1 0 0 1 -5.37354 40.5458" transformations="translations" pos="237.787 751.321" stroke="red" type="label" width="63.872" height="6.918" depth="0" valign="baseline">Rechtsrotation</text>
 </page>
 </ipe>
