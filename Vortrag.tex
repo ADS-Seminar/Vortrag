@@ -1,4 +1,5 @@
 \documentclass[t]{beamer}
+\usepackage{adjustbox}
 \usetheme[height=7mm]{Rochester}
 \setbeamercovered{transparent}
 \setbeamertemplate{navigation symbols}{}
@@ -82,22 +83,18 @@
     \begin{table}
         \begin{tabular}{l | c }
         Methode & Laufzeit\\
-        \hline % TODO: Tabellenstruktur vorher schon anzeigen (wie in Zeile 1 oder 2)
+        \hline
         \only<2->{$S$ = MakeSet()} & \only<2->{$O(1)$}\\
-        \visible<3->{Insert$(i, S)$} & \visible<3->{$O(h)$} \\
-        \onslide<4-> Delete$(k, S)$ & $O(h)$ \\
-        \onslide<5-> Find$(k, S)$ & $O(h)$ \\
-<<<<<<< HEAD
-        \onslide<6-> $S$ = Join($S_1, i, S_2$) & $O(1)$ \\
-        \onslide<7-> $S$ = Paste($S_1, S_2$) & $O(h_1)$ \\
-        \onslide<8-> $S_1, S_2$ = Split$(k, S)$ & $O(h)$ 
-=======
-        \onslide<6-> $S$ = Join($S_1, i, S_2$) & STUFF \\
-        \onslide<7-> $S$ = Paste($S_1, S_2$) & STUFF \\
-        \onslide<8-> $S_1, S_2$ = Split$(k, S)$ & STUFF 
-        %TODO: Laufzeiten für Join/Paste/Split? -> steht indirekt im Buch (Implementierung)
+        \only<3->{Insert$(i, S)$} & \only<3->{$O(h)$} \\
+        \only<4-> {Delete$(k, S)$} & 
+        \only<4-> {$O(h)$} \\
+        \only<5-> {Find$(k, S)$} & 
+        \only<5-> {$O(h)$} \\
+        \only<6-> {$S$ = Join($S_1, i, S_2$)} &
+        \only<6-> {$O(1)$} \\
+        \only<7-> {$S$ = Paste($S_1, S_2$)} & \only<7-> {$O(h_1)$} \\
+        \only<8-> {$S_1, S_2$ = Split$(k, S)$} & \only<8-> {$O(h)$}
         % TODO: geht die Tabelle auch größer? das sieht irgendwie komisch aus
->>>>>>> origin/master
         \end{tabular}
     \end{table}
     \begin{itemize}
