@@ -134,7 +134,7 @@
 
 \section{Treaps}
 \subsection{Grundlagen}
-\begin{frame}{Titel}
+\begin{frame}{Treaps - Definition}
     \begin{center}
         \color{red}{Binary \textbf{Tr}ee} + \color{blue}{H\textbf{eap}} = \textbf{\textcolor{red}{Tr}\textcolor{blue}{eap}}
     \end{center}
@@ -147,7 +147,7 @@
 \end{frame}
 
 \subsection{Existenz eindeutiger Treaps}
-\begin{frame}{Titel}
+\begin{frame}{Existenz eindeutiger Treaps}
     \begin{Satz}
         Für jede Menge $S = \{(k_1,p_1), \dots, (k_n, p_n)\}$ von Schlüssel-Priorität-Paaren mit paarweise unterschiedlichen Schlüsseln und Prioritäten existiert genau ein gültiger Treap.
     \end{Satz}
@@ -176,7 +176,7 @@
 
 \subsection{Implementierung}
 % TODO: Folie für Rotation
-\begin{frame}{Titel}
+\begin{frame}{Find + Update}
     \begin{columns}<1->
     \begin{column}{.65\textwidth}<1->
         \begin{itemize}
@@ -218,7 +218,7 @@
 % S_1, S_2 = Split(k, S)
 \end{frame}
 
-\begin{frame}{Titel}
+\begin{frame}{Mengenoperationen}
     \begin{columns}<1->
     \begin{column}{.65\textwidth}<1->
         \begin{itemize}
@@ -265,8 +265,44 @@
 \end{frame}
 
 \subsection{Laufzeitanalyse}
-\begin{frame}{Titel}
-    
+% TODO: Es reicht "Delete" zu analysieren
+% TODO: Laufzeit v. Delete(x) = Find(x) + leftspine + right spine
+\begin{frame}{Mulmuley Games}
+    Gegeben seien folgende disjunkte Mengen:
+    \begin{itemize}
+        \item Spieler $P$
+        \item Zuschauer $B$
+        \item Trigger $T$
+        \item Stopper $S$ (zählen auch als Spieler)
+    \end{itemize}
+    \only<5->{$P, S$ total geordnet}
+
+    \only<6->{$\forall p \in P, s \in S:\ p < s$}
+
+\end{frame}
+\begin{frame}{Mulmuley Games}
+    Ziehe zufällige Elemente aus einer Menge $X$ bis ein Stopper gezogen wurde oder die Menge leer ist.
+    % TODO: nach hinten: Zähle Anzahl der Spieler, die größer sind als alle vorherigen.
+    \begin{itemize}
+        \item Spiel A
+        \begin{itemize}
+            \item $X = P \cup B$
+        \end{itemize}
+        \item Spiel C
+        \begin{itemize}
+            \item $X = P \cup S \cup B$
+        \end{itemize}
+        \item Spiel D
+        \begin{itemize}
+            \item $X = P \cup T \cup B$
+        \end{itemize}
+        \item Spiel E
+        \begin{itemize}
+            \item $X = P \cup T \cup S \cup B$
+        \end{itemize}
+    \end{itemize}
+    \only<9->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.}
+    \only<10->{Wert des Spiels: Erwartungswert der Anzahl}
 \end{frame}
 
 
