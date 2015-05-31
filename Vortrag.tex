@@ -176,6 +176,8 @@
 
 \subsection{Implementierung}
 % TODO: Folie für Rotation
+% Rotation erhält Suchbaumeigenschaft
+% Rotation ändert Prioritätenreihenfolge rot <-> blau (Rest bleibt gleich)
 \begin{frame}{Find + Update}
     \begin{columns}<1->
     \begin{column}{.65\textwidth}<1->
@@ -189,7 +191,7 @@
                         Rotiere $i$ nach oben \;
                     }
                 \end{algorithm}
-            \item<3> Delete($i$, $S$):
+            \item<3> Delete($k$, $S$):
                 \begin{algorithm}[H]
                     \SetKw{Not}{not}
                     \While{\Not istBlatt($i$)}{
@@ -201,12 +203,12 @@
     \end{column}
     \begin{column}{.35\textwidth}<1->
         \raisebox{-\totalheight}{
-            %\only<1>{\includegraphics[width=.8\textwidth]{img/Impl_Find.pdf}} %TODO: Bild fehlt noch
-            \only<1>{\includegraphics[width=.8\textwidth]{img/dummy.pdf}}
-            %\only<2>{\includegraphics[width=.8\textwidth]{img/Impl_Insert.pdf}} %TODO: Bild fehlt noch
-            \only<2>{\includegraphics[width=.8\textwidth]{img/dummy.pdf}}
-            %\only<3>{\includegraphics[width=.8\textwidth]{img/Impl_Delete.pdf}} %TODO: Bild fehlt noch
-            \only<3>{\includegraphics[width=.8\textwidth]{img/dummy.pdf}}
+            %\includegraphics<1>[width=.8\textwidth]{img/Impl_Find.pdf} %TODO: Bild fehlt noch
+            \includegraphics<1>[width=.8\textwidth]{img/dummy.pdf}
+            %\includegraphics<2>[width=.8\textwidth]{img/Impl_Insert.pdf} %TODO: Bild fehlt noch
+            \includegraphics<2>[width=.8\textwidth]{img/dummy.pdf}
+            %\includegraphics<3>[width=.8\textwidth]{img/Impl_Delete.pdf} %TODO: Bild fehlt noch
+            \includegraphics<3>[width=.8\textwidth]{img/dummy.pdf}
         }
     \end{column}
     \end{columns}
@@ -247,12 +249,12 @@
     \end{column}
     \begin{column}{.35\textwidth}<1->
         \raisebox{-\totalheight}{
-            %\only<1>{\includegraphics[width=.8\textwidth]{img/Impl_Join.pdf}} %TODO: Bild fehlt noch
-            \only<1>{\includegraphics[width=.8\textwidth]{img/dummy.pdf}}
-            %\only<2>{\includegraphics[width=.8\textwidth]{img/Impl_Paste.pdf}} %TODO: Bild fehlt noch
-            \only<2>{\includegraphics[width=.8\textwidth]{img/dummy.pdf}}
-            %\only<3>{\includegraphics[width=.8\textwidth]{img/Impl_Split.pdf}} %TODO: Bild fehlt noch
-            \only<3>{\includegraphics[width=.8\textwidth]{img/dummy.pdf}}
+            %\includegraphics<1>[width=.8\textwidth]{img/Impl_Join.pdf} %TODO: Bild fehlt noch
+            \includegraphics<1>[width=.8\textwidth]{img/dummy.pdf}
+            %\includegraphics<2>[width=.8\textwidth]{img/Impl_Paste.pdf} %TODO: Bild fehlt noch
+            \includegraphics<2>[width=.8\textwidth]{img/dummy.pdf}
+            %\includegraphics<3>[width=.8\textwidth]{img/Impl_Split.pdf} %TODO: Bild fehlt noch
+            \includegraphics<3>[width=.8\textwidth]{img/dummy.pdf}
         }
     \end{column}
     \end{columns}
@@ -287,31 +289,59 @@
         \item Spiel A
         \begin{itemize}
             \item $X = P \cup B$
+            \item<.(7)-> $A^p = H_p$
         \end{itemize}
         \item Spiel C
         \begin{itemize}
             \item $X = P \cup S \cup B$
+            \item<.(6)-> $C_s^p = 1 + H_{s+p} - H_s$
         \end{itemize}
         \item Spiel D
         \begin{itemize}
             \item $X = P \cup T \cup B$
+            \item<.(5)-> $D_t^p = H_p + H_t - H_{p+t}$
         \end{itemize}
-        \item Spiel E
-        \begin{itemize}
-            \item $X = P \cup T \cup S \cup B$
-        \end{itemize}
+        % \item Spiel E % TODO: Spiel E weglassen, da nicht verwendet?
+        % \begin{itemize}
+            % \item $X = P \cup T \cup S \cup B$
+            % \item<14-> $E_{t,s}^p = \frac t{t+s} + (H_{s+p} - H_s) - (H_{t+s+p} - H_{t+s})$
+        % \end{itemize}
     \end{itemize}
-    \only<9->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.}
-    \only<10->{Wert des Spiels: Erwartungswert der Anzahl}
+    \only<+->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.} % TODO: Aufdeckzeiten anpassen (Spiel E weggelassen)
+
+    \only<+->{Wert des Spiels: Erwartungswert der Anzahl}
+\end{frame}
+\begin{frame}{Laufzeitanalyse}
+    Zur Laufzeitanalyse genügt es, Delete($k, S$) zu betrachten.
+
+    \uncover<2->{Laufzeit von Delete($k, S$):}
+    \begin{itemize}
+        \item<3-> Tiefe des Knotens mit Schlüssel $k$
+        \item<4-> Länge rechter Grat % TODO? gute Übersetzung?
+        des linken Teilbaums +\\ Länge linker Grat des rechten Teilbaums
+    \end{itemize}
+    \includegraphics<2>[width=.8\textwidth]{img/dummy.pdf}% TODO: Graph mit markiertem Knoten (Schema)
+    \includegraphics<3>[width=.8\textwidth]{img/dummy.pdf}% TODO: Zeichne Suchpfad ein
+    \includegraphics<4>[width=.8\textwidth]{img/dummy.pdf}% TODO: Zeichne Grate ein
+\end{frame}
+\begin{frame}
+    % Tiefe des Knotens: O(log n)
+    % Länge der Grate < 2
 \end{frame}
 
 
 \section*{Fazit}
 \begin{frame}{Fazit}
-    
+    % Laufzeiten beim Treap
 \end{frame}
 
 
+% TODO: Es reicht "Delete" zu analysieren
+% TODO: Laufzeit v. Delete(x) = Tiefe(x) + leftspine + right spine
+%                                 |                 |
+%                              Suchen            Rotieren
+%                              Game A             Game D
+%                              O(log n)           < 2
 
 % \section{Skip-Lists}
 % \subsection{Grundlagen}
