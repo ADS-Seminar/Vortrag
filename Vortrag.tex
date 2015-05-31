@@ -18,6 +18,7 @@
 \usepackage[german]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[vlined]{algorithm2e}
+\usepackage{adjustbox}
 \DontPrintSemicolon
 
 \theoremstyle{plain}
@@ -80,6 +81,7 @@
 \begin{frame}{Laufzeiten bei binären Suchbäumen}
     \setbeamercovered{invisible}
     \begin{table}
+    	\resizebox{7 cm}{!}{
         \begin{tabular}{l | c }
         Methode & Laufzeit\\
         \hline
@@ -93,8 +95,8 @@
         \visible<6-> {$O(1)$} \\
         \visible<7-> {$S$ = Paste($S_1, S_2$)} & \only<7-> {$O(h_1)$} \\
         \visible<8-> {$S_1, S_2$ = Split$(k, S)$} & \only<8-> {$O(h)$}
-        % TODO: geht die Tabelle auch größer? das sieht irgendwie komisch aus
         \end{tabular}
+        }
     \end{table}
     \begin{itemize}
         \item\onslide<3->$h$ = Höhe des Baums
