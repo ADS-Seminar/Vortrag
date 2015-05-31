@@ -177,9 +177,13 @@
 \end{frame}
 
 \subsection{Implementierung}
-% TODO: Folie für Rotation
-% Rotation erhält Suchbaumeigenschaft
-% Rotation ändert Prioritätenreihenfolge rot <-> blau (Rest bleibt gleich)
+\begin{frame}{Rotation}
+    \includegraphics[width=\textwidth]{img/Tree_Rotation_color.pdf}
+    \begin{itemize}
+        \item<2-> erhält Suchbaumeigenschaft
+        \item<3-> ändert Prioritätenreihenfolge rot/blau
+    \end{itemize}
+\end{frame}
 \begin{frame}{Find + Update}
     \begin{columns}<1->
     \begin{column}{.65\textwidth}<1->
@@ -269,8 +273,6 @@
 \end{frame}
 
 \subsection{Laufzeitanalyse}
-% TODO: Es reicht "Delete" zu analysieren
-% TODO: Laufzeit v. Delete(x) = Find(x) + leftspine + right spine
 \begin{frame}{Mulmuley Games}
     Gegeben seien folgende disjunkte Mengen:
     \begin{itemize}
@@ -286,7 +288,6 @@
 \end{frame}
 \begin{frame}{Mulmuley Games}
     Ziehe zufällige Elemente aus einer Menge $X$ bis ein Stopper gezogen wurde oder die Menge leer ist.
-    % TODO: nach hinten: Zähle Anzahl der Spieler, die größer sind als alle vorherigen.
     \begin{itemize}
         \item Spiel A
         \begin{itemize}
@@ -309,7 +310,7 @@
             % \item<14-> $E_{t,s}^p = \frac t{t+s} + (H_{s+p} - H_s) - (H_{t+s+p} - H_{t+s})$
         % \end{itemize}
     \end{itemize}
-    \only<+->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.} % TODO: Aufdeckzeiten anpassen (Spiel E weggelassen)
+    \only<+->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.}
 
     \only<+->{Wert des Spiels: Erwartungswert der Anzahl}
 \end{frame}
@@ -317,33 +318,86 @@
     Zur Laufzeitanalyse genügt es, Delete($k, S$) zu betrachten.
 
     \uncover<2->{Laufzeit von Delete($k, S$):}
-    \begin{itemize}
-        \item<3-> Tiefe des Knotens mit Schlüssel $k$
-        \item<4-> Länge rechter Grat % TODO? gute Übersetzung?
-        des linken Teilbaums +\\ Länge linker Grat des rechten Teilbaums
-    \end{itemize}
-    \includegraphics<2>[width=.8\textwidth]{img/dummy.pdf}% TODO: Graph mit markiertem Knoten (Schema)
-    \includegraphics<3>[width=.8\textwidth]{img/dummy.pdf}% TODO: Zeichne Suchpfad ein
-    \includegraphics<4>[width=.8\textwidth]{img/dummy.pdf}% TODO: Zeichne Grate ein
+    \begin{columns}
+    \begin{column}{.71\textwidth}
+        \begin{itemize}
+            \item<3-> Tiefe des Knotens mit Schlüssel $k$\\
+            (Suche)
+            \item<4-> Länge rechter Grat % TODO? gute Übersetzung?
+            des linken Teilbaums +\\ Länge linker Grat des rechten Teilbaums\\
+            (nach unten rotieren)
+        \end{itemize}
+    \end{column}
+    \begin{column}{.29\textwidth}<1->
+        \raisebox{-\totalheight}{
+        \includegraphics<2>[page=1,height=.75\textheight]{img/Analyse_Delete.pdf}
+        \includegraphics<3>[page=2,height=.75\textheight]{img/Analyse_Delete.pdf}
+        \includegraphics<4>[page=3,height=.75\textheight]{img/Analyse_Delete.pdf}
+    }
+    \end{column}
+    \end{columns}
 \end{frame}
-\begin{frame}
+\begin{frame}{Laufzeitanalyse}
+    \uncover<+->{Sei $X$ die Menge aller Knoten.
+    Sei $x$ ein Knoten mit Rang $r$ und $X_\leq$ die Menge aller Knoten mit Schlüssel kleiner/gleich $k_x$.}
+
+    \uncover<+->{Füge die Knoten nach absteigender Priorität ein.}
+
     % Tiefe des Knotens: O(log n)
+    \uncover<+->{\textbf{Tiefe des Knotens}}
+
+    \uncover<+->{Die Knoten in $X_\leq$ entlang des Suchpfads von $x$ sind genau die, die beim Einfügen am größten sind.}
+
+    \uncover<+->{$\Rightarrow$ Spiel A mit $P = X_\leq, B = X \setminus X_\leq$ ($|P| = r, |B| = n - r$)}
+
+    \uncover<+->{$\Rightarrow$ Erwarteter Wert: $H_r$}
+
+    \uncover<+->{$\Rightarrow$ Länge des Suchpfads: $H_r + H_{n-r+1} - 1 \in O(\log n)$}
+
     % Länge der Grate < 2
+    \uncover<+->{\textbf{Anzahl der Rotationen}}
+
+    \uncover<+->{Mit ähnlichen Argumenten:}
+
+    \uncover<+->{Spiel D mit $P = X\leq \setminus \{x\}, T = \{x\}, B = X \setminus X\leq$}
+
+    \uncover<+->{$\Rightarrow$ Erwarteter Wert: $H_{r-1} + H_1 - H_r = 1 - 1/r$}
+
+    \uncover<+->{$\Rightarrow$ Anzahl der Rotationen: $2 - 1/r - 1/(n-r+1) < 2$}
 \end{frame}
 
 
 \section*{Fazit}
 \begin{frame}{Fazit}
-    % Laufzeiten beim Treap
+    Erwartete Laufzeiten bei Treaps:
+    \begin{table}
+    	\resizebox{7 cm}{!}{
+        \begin{tabular}{l | c }
+        Methode & Laufzeit\\
+        \hline
+        \visible<+->{Insert$(i, S)$} &
+        \only<.->{$O(\log n)$} \\
+        \visible<+-> {Delete$(k, S)$} &
+        \visible<.-> {$O(\log n)$} \\
+        \visible<+-> {Find$(k, S)$} &
+        \visible<.-> {$O(\log n)$} \\
+        \visible<+-> {$S$ = Join($S_1, i, S_2$)} &
+        \visible<.-> {$O(\log n + \log m)$} \\
+        \visible<+-> {$S$ = Paste($S_1, S_2$)} &
+        \only<.-> {$O(\log n + \log m)$} \\
+        \visible<+-> {$S_1, S_2$ = Split$(k, S)$} &
+        \only<.-> {$O(\log n + \log m)$}
+        \end{tabular}
+        }
+    \end{table}
+    \begin{itemize}
+        \item<1->$n$ = Anzahl der Knoten
+        \item<4->$m$ = Anzahl der Knoten im zweiten Treap
+    \end{itemize}
+
+    \vspace{1em}
+    \hfill\only<7->{\textbf{\Large Fragen?}}\hspace{3em}
 \end{frame}
-
-
-% TODO: Es reicht "Delete" zu analysieren
-% TODO: Laufzeit v. Delete(x) = Tiefe(x) + leftspine + right spine
-%                                 |                 |
-%                              Suchen            Rotieren
-%                              Game A             Game D
-%                              O(log n)           < 2
 
 % \section{Skip-Lists}
 % \subsection{Grundlagen}
