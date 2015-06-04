@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.5">
-<info created="D:20150510145008" modified="D:20150531181626" author="Moritz  Beck" subject="Beispiel Treap"/>
+<info created="D:20150510145008" modified="D:20150604183955" author="Moritz  Beck" subject="Beispiel Treap"/>
 <preamble>\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}</preamble>
 <ipestyle name="basic">
@@ -222,6 +222,7 @@ h
 <view layers="Grungerüst m_Knoten" active="m_Knoten"/>
 <view layers="Grungerüst m_Suche" active="m_Suche"/>
 <view layers="Grungerüst m_Grat" active="m_Grat"/>
+<view layers="Grungerüst" active="Grungerüst"/>
 <path layer="Grungerüst" matrix="1 0 0 1 71.4274 -209.36" stroke="black" fill="white">
 96 736 m
 80 688 l

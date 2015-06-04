@@ -281,28 +281,33 @@
         \item Trigger $T$
         \item Stopper $S$ (zählen auch als Spieler)
     \end{itemize}
-    \only<5->{$P, S$ total geordnet}
+    \only<+->{$P, S$ total geordnet}
 
-    \only<6->{$\forall p \in P, s \in S:\ p < s$}
+    \only<+->{$\forall p \in P, s \in S:\ p < s$}
 
+    \only<+->{Ziehe zufällige Elemente aus einer Menge $X$ bis ein Stopper gezogen wurde oder die Menge leer ist.}
+
+    \only<+->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.}
+
+    \only<+->{Wert des Spiels: Erwartungswert der Anzahl}
 \end{frame}
 \begin{frame}{Mulmuley Games}
-    Ziehe zufällige Elemente aus einer Menge $X$ bis ein Stopper gezogen wurde oder die Menge leer ist.
+    Wert des Spiels: Erwartungswert der Anzahl
     \begin{itemize}
         \item Spiel A
         \begin{itemize}
             \item $X = P \cup B$
-            \item<.(7)-> $A^p = H_p$
+            \item $A^p = H_p$
         \end{itemize}
         \item Spiel C
         \begin{itemize}
             \item $X = P \cup S \cup B$
-            \item<.(6)-> $C_s^p = 1 + H_{s+p} - H_s$
+            \item $C_s^p = 1 + H_{s+p} - H_s$
         \end{itemize}
         \item Spiel D
         \begin{itemize}
             \item $X = P \cup T \cup B$
-            \item<.(5)-> $D_t^p = H_p + H_t - H_{p+t}$
+            \item $D_t^p = H_p + H_t - H_{p+t}$
         \end{itemize}
         % \item Spiel E % TODO: Spiel E weglassen, da nicht verwendet?
         % \begin{itemize}
@@ -310,9 +315,6 @@
             % \item<14-> $E_{t,s}^p = \frac t{t+s} + (H_{s+p} - H_s) - (H_{t+s+p} - H_{t+s})$
         % \end{itemize}
     \end{itemize}
-    \only<+->{Zähle die Anzahl der Spieler, die größer sind als alle vorherigen und nach dem ersten Trigger gezogen wurden.}
-
-    \only<+->{Wert des Spiels: Erwartungswert der Anzahl}
 \end{frame}
 \begin{frame}{Laufzeitanalyse}
     Zur Laufzeitanalyse genügt es, Delete($k, S$) zu betrachten.
@@ -323,26 +325,27 @@
         \begin{itemize}
             \item<3-> Tiefe des Knotens mit Schlüssel $k$\\
             (Suche)
-            \item<4-> Länge rechter Grat % TODO? gute Übersetzung?
-            des linken Teilbaums +\\ Länge linker Grat des rechten Teilbaums\\
+            \item<4-> Länge rechter Grat des linken Teilbaums +\\
+            Länge linker Grat des rechten Teilbaums\\
             (nach unten rotieren)
         \end{itemize}
+        \vspace{1em}
+        \uncover<5->{Sei $X$ die Menge aller Knoten.
+        Sei $x$ ein Knoten mit Rang $r$ und $X_\leq$ die Menge aller Knoten mit Schlüssel kleiner/gleich $k_x$.}
+
+        \uncover<6->{Füge die Knoten o.E. nach absteigender Priorität ein.}
     \end{column}
     \begin{column}{.29\textwidth}<1->
         \raisebox{-\totalheight}{
         \includegraphics<2>[page=1,height=.75\textheight]{img/Analyse_Delete.pdf}
         \includegraphics<3>[page=2,height=.75\textheight]{img/Analyse_Delete.pdf}
         \includegraphics<4>[page=3,height=.75\textheight]{img/Analyse_Delete.pdf}
+        \includegraphics<5->[page=4,height=.75\textheight]{img/Analyse_Delete.pdf}
     }
     \end{column}
     \end{columns}
 \end{frame}
-\begin{frame}{Laufzeitanalyse}
-    \uncover<+->{Sei $X$ die Menge aller Knoten.
-    Sei $x$ ein Knoten mit Rang $r$ und $X_\leq$ die Menge aller Knoten mit Schlüssel kleiner/gleich $k_x$.}
-
-    \uncover<+->{Füge die Knoten nach absteigender Priorität ein.}
-
+\begin{frame}{Laufzeitanalyse -- Tiefe}
     % Tiefe des Knotens: O(log n)
     \uncover<+->{\textbf{Tiefe des Knotens}}
 
@@ -354,6 +357,20 @@
 
     \uncover<+->{$\Rightarrow$ Länge des Suchpfads: $H_r + H_{n-r+1} - 1 \in O(\log n)$}
 
+    \vspace{1em}
+    \uncover<+->{Beispiel: $k_x = 6$}
+    \includegraphics<+>[page=1,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=2,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=3,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=4,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=5,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=6,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=7,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=8,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=9,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+>[page=10,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+\end{frame}
+\begin{frame}{Laufzeitanalyse -- Rotationen}
     % Länge der Grate < 2
     \uncover<+->{\textbf{Anzahl der Rotationen}}
 
