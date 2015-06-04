@@ -70,7 +70,7 @@
         \item<4-> Delete($k, S$)
         \item<5-> Find($k, S$)
         \item<6-> $S$ = Join$(S_1, i, S_2)$
-        \item<7-> $S$ = Paste$(S_1, S_2)$
+        \item<7-> $S$ = Merge$(S_1, S_2)$
         \item<8-> $S_1, S_2$ = Split$(k, S)$ 
     \end{itemize}
     \bigskip
@@ -93,7 +93,7 @@
         \visible<5-> {$O(h)$} \\
         \visible<6-> {$S$ = Join($S_1, i, S_2$)} &
         \visible<6-> {$O(1)$} \\
-        \visible<7-> {$S$ = Paste($S_1, S_2$)} & \only<7-> {$O(h_1)$} \\
+        \visible<7-> {$S$ = Merge($S_1, S_2$)} & \only<7-> {$O(h_1)$} \\
         \visible<8-> {$S_1, S_2$ = Split$(k, S)$} & \only<8-> {$O(h)$}
         \end{tabular}
         }
@@ -161,7 +161,7 @@
         \begin{column}[t]{.65\textwidth}
             \begin{itemize}
             \item<3-> \textbf{IA}: n = 0: \\ leere Menge $\leftrightarrow$ leerer Baum \textcolor[rgb]{0,.7,0}{\Large\checkmark}
-            \item<4-> \textbf{IS}: $t   = \{(k_t, p_t) \in S \mid p_t \text{ minimal}\}$
+            \item<4-> \textbf{IS}: $t   = \{(k_t, p_t) \in S \mid p_t \text{ maximal}\}$
                                    $M_< = \{(k_i, p_i) \in S \mid k_i < k_t\}$ \\
                                    $M_> = \{(k_i, p_i) \in S \mid k_i > k_t\}$
             \end{itemize}
@@ -222,7 +222,7 @@
 % Delete(k, S) // S wird verändert
 % Find(k, S)
 % S = Join(S_1, i, S_2)
-% S = Paste(S_1, S_2)
+% S = Merge(S_1, S_2)
 % S_1, S_2 = Split(k, S)
 \end{frame}
 
@@ -240,7 +240,7 @@
                     }
                     \Return $i$
                 \end{algorithm}
-            \item<2> Paste($S_1$, $S_2$):
+            \item<2> Merge($S_1$, $S_2$):
                 \begin{algorithm}[H]
                     $i$ $\gets$ Find($\infty$, $S_1$) \tcp{Maximum}
                     Delete($i$, $S_1$) \;
@@ -257,7 +257,7 @@
         \raisebox{-\totalheight}{
             %\includegraphics<1>[width=.8\textwidth]{img/Impl_Join.pdf} %TODO: Bild fehlt noch
             \includegraphics<1>[width=.8\textwidth]{img/dummy.pdf}
-            %\includegraphics<2>[width=.8\textwidth]{img/Impl_Paste.pdf} %TODO: Bild fehlt noch
+            %\includegraphics<2>[width=.8\textwidth]{img/Impl_Merge.pdf} %TODO: Bild fehlt noch
             \includegraphics<2>[width=.8\textwidth]{img/dummy.pdf}
             %\includegraphics<3>[width=.8\textwidth]{img/Impl_Split.pdf} %TODO: Bild fehlt noch
             \includegraphics<3>[width=.8\textwidth]{img/dummy.pdf}
@@ -268,7 +268,7 @@
 % Delete(k, S) // S wird verändert
 % Find(k, S)
 % S = Join(S_1, i, S_2)
-% S = Paste(S_1, S_2)
+% S = Merge(S_1, S_2)
 % S_1, S_2 = Split(k, S)
 \end{frame}
 
@@ -400,7 +400,7 @@
         \visible<.-> {$O(\log n)$} \\
         \visible<+-> {$S$ = Join($S_1, i, S_2$)} &
         \visible<.-> {$O(\log n + \log m)$} \\
-        \visible<+-> {$S$ = Paste($S_1, S_2$)} &
+        \visible<+-> {$S$ = Merge($S_1, S_2$)} &
         \only<.-> {$O(\log n + \log m)$} \\
         \visible<+-> {$S_1, S_2$ = Split$(k, S)$} &
         \only<.-> {$O(\log n + \log m)$}
