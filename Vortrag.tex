@@ -392,23 +392,23 @@
         Methode & Treap & Binärbaum\\
         \hline
         \visible<+->{Insert$(i, S)$} &
-        \only<.->{$O(\log n)$} & 
-        \only<.->{$O(h)$} \\
+        \visible<.->{$O(\log n)$} & 
+        \visible<.->{$O(h)$} \\
         \visible<+-> {Delete$(k, S)$} &
         \visible<.-> {$O(\log n)$} & 
-        \only<.->{$O(h)$} \\
+        \visible<.->{$O(h)$} \\
         \visible<+-> {Find$(k, S)$} &
         \visible<.-> {$O(\log n)$} & 
-        \only<.->{$O(h)$} \\
+        \visible<.->{$O(h)$} \\
         \visible<+-> {$S$ = Join($S_1, i, S_2$)} &
         \visible<.-> {$O(\log n + \log m)$} & 
-        \only<.->{$O(1)$} \\
+        \visible<.->{$O(1)$} \\
         \visible<+-> {$S$ = Merge($S_1, S_2$)} &
-        \only<.-> {$O(\log n + \log m)$} & 
-        \only<.->{$O(h_1 + h_2)$} \\
+        \visible<.-> {$O(\log n + \log m)$} & 
+        \visible<.->{$O(h_1 + h_2)$} \\
         \visible<+-> {$S_1, S_2$ = Split$(k, S)$} &
-        \only<.-> {$O(\log n + \log m)$} & 
-        \only<.->{$O(h)$}
+        \visible<.-> {$O(\log n + \log m)$} & 
+        \visible<.->{$O(h)$}
         \end{tabular}
         }
     \end{table}
