@@ -93,14 +93,14 @@
         \visible<5-> {$O(h)$} \\
         \visible<6-> {$S$ = Join($S_1, i, S_2$)} &
         \visible<6-> {$O(1)$} \\
-        \visible<7-> {$S$ = Merge($S_1, S_2$)} & \only<7-> {$O(h_1)$} \\
-        \visible<8-> {$S_1, S_2$ = Split$(k, S)$} & \only<8-> {$O(h)$}
+        \visible<7-> {$S$ = Merge($S_1, S_2$)} & \visible<7-> {$O(h_1 + h_2)$} \\
+        \visible<8-> {$S_1, S_2$ = Split$(k, S)$} & \visible<8-> {$O(h)$}
         \end{tabular}
         }
     \end{table}
     \begin{itemize}
         \item\onslide<3->$h$ = Höhe des Baums
-        \item\onslide<7->$h_1$ = Höhe des ersten Baums
+        \item\onslide<7->$h_x$ = Höhe von $S_x$
     \end{itemize}
 \end{frame}
 
@@ -108,7 +108,7 @@
     \begin{frame}{Probleme bei binären Suchbäumen}
     \begin{itemize}
     \item Es zeichnet sich ab: Hohe Abhängigkeit von Höhe des Baums $\Rightarrow$ Schwanken zwischen $O(\log(n))$ und $O(n)$
-    \item Problem: Binärbäume sind oft unoptimal und extreme Fälle führen zu langen Laufzeiten!
+    \item Problem: Binärbäume können unoptimal sein und extreme Fälle führen zu langen Laufzeiten!
     \end{itemize}
     {\only<3->{\hspace{1.1 in}\includegraphics[width=.5\textwidth] {img/BinaryTree.pdf}}}
 \end{frame}
@@ -119,8 +119,8 @@
     \item Lösung: Vorherige Optimierung (Balancieren)?
     \item Balancieren bringt neue Probleme:
         \begin{itemize}
-        \item Erhöhter Overhead
-        \item Höhere Laufzeiten durch konstantes Updating
+        \item Komplexere Implementierung
+        \item Höherer Aufwand durch konstantes Updating
         \item Speichern von zusätzlicher Information möglicherweise notwendig
         \end{itemize}
     \bigskip
@@ -357,6 +357,7 @@
     \uncover<+->{Die Knoten in $X_\leq$ entlang des Suchpfads von $x$ sind genau die, die beim Einfügen am größten sind.}
 
     \uncover<+->{$\Rightarrow$ Spiel A mit $P = X_\leq, B = X \setminus X_\leq$ ($|P| = r, |B| = n - r$)}
+    %TODO Aufgabe: Wie mit Spiel C?
 
     \uncover<+->{$\Rightarrow$ Erwarteter Wert: $H_r$}
 
@@ -381,7 +382,7 @@
 
     \uncover<+->{Mit ähnlichen Argumenten:}
 
-    \uncover<+->{Spiel D mit $P = X\leq \setminus \{x\}, T = \{x\}, B = X \setminus X\leq$}
+    \uncover<+->{Spiel D mit $P = X_\leq \setminus \{x\}, T = \{x\}, B = X \setminus X_\leq$}
 
     \uncover<+->{$\Rightarrow$ Erwarteter Wert: $H_{r-1} + H_1 - H_r = 1 - 1/r$}
 
@@ -393,22 +394,28 @@
 \begin{frame}{Fazit}
     Erwartete Laufzeiten bei Treaps:
     \begin{table}
-    	\resizebox{7 cm}{!}{ % TODO: Laufzeiten Binärbaum
-        \begin{tabular}{l | c }
-        Methode & Laufzeit\\
+    	\resizebox{10 cm}{!}{ % TODO: Laufzeiten Binärbaum
+        \begin{tabular}{l | c | c }
+        Methode & Treap & Binärbaum\\
         \hline
         \visible<+->{Insert$(i, S)$} &
-        \only<.->{$O(\log n)$} \\
+        \only<.->{$O(\log n)$} & 
+        \only<.->{$O(h)$} \\
         \visible<+-> {Delete$(k, S)$} &
-        \visible<.-> {$O(\log n)$} \\
+        \visible<.-> {$O(\log n)$} & 
+        \only<.->{$O(h)$} \\
         \visible<+-> {Find$(k, S)$} &
-        \visible<.-> {$O(\log n)$} \\
+        \visible<.-> {$O(\log n)$} & 
+        \only<.->{$O(h)$} \\
         \visible<+-> {$S$ = Join($S_1, i, S_2$)} &
-        \visible<.-> {$O(\log n + \log m)$} \\
+        \visible<.-> {$O(\log n + \log m)$} & 
+        \only<.->{$O(1)$} \\
         \visible<+-> {$S$ = Merge($S_1, S_2$)} &
-        \only<.-> {$O(\log n + \log m)$} \\
+        \only<.-> {$O(\log n + \log m)$} & 
+        \only<.->{$O(h_1 + h_2)$} \\
         \visible<+-> {$S_1, S_2$ = Split$(k, S)$} &
-        \only<.-> {$O(\log n + \log m)$}
+        \only<.-> {$O(\log n + \log m)$} & 
+        \only<.->{$O(h)$}
         \end{tabular}
         }
     \end{table}
