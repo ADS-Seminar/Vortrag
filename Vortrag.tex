@@ -252,12 +252,8 @@
     \end{column}
     \begin{column}{.35\textwidth}<1->
         \raisebox{-\totalheight}{
-            %\includegraphics<1>[width=.8\textwidth]{img/Impl_Join.pdf} %TODO: Bild fehlt noch
-            \includegraphics<1>[width=.8\textwidth]{img/dummy.pdf}
-            %\includegraphics<2>[width=.8\textwidth]{img/Impl_Merge.pdf} %TODO: Bild fehlt noch
-            \includegraphics<2>[width=.8\textwidth]{img/dummy.pdf}
-            %\includegraphics<3>[width=.8\textwidth]{img/Impl_Split.pdf} %TODO: Bild fehlt noch
-            \includegraphics<3>[width=.8\textwidth]{img/dummy.pdf}
+            \includegraphics<1>[width=.8\textwidth]{img/Impl_Join.pdf}
+            \includegraphics<2>[width=.8\textwidth]{img/Impl_Merge.pdf}
         }
     \end{column}
     \end{columns}
@@ -268,9 +264,17 @@
 % S = Merge(S_1, S_2)
 % S_1, S_2 = Split(k, S)
 \end{frame}
-\begin{frame}{Übungsaufgabe -- Implementierung Split}
-    Aufgabe: Implementieren Sie Split!
-    % TODO
+\begin{frame}{Lösung -- Implementierung Split}
+    \vspace{2em}
+    Split($k$, $S$):
+    \vspace{.5em}
+    \begin{algorithm}[H]
+        Delete($k$, $S$) \tcp{falls existent}
+        $i \gets (k, \infty)$ \;
+        Insert($i$, $S$) \;
+        \Return $i$.left, $i$.right;
+    \end{algorithm}
+    \hfill\includegraphics[width=.4\textwidth]{img/Impl_Split.pdf}\hspace{2em}
 \end{frame}
 
 \subsection{Laufzeitanalyse}
