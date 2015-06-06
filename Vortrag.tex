@@ -81,7 +81,7 @@
 \begin{frame}{Laufzeiten bei binären Suchbäumen}
     \setbeamercovered{invisible}
     \begin{table}
-    	\resizebox{7 cm}{!}{
+        \resizebox{7 cm}{!}{
         \begin{tabular}{l | c }
         Methode & Laufzeit\\
         \hline
@@ -245,7 +245,6 @@
                 \end{algorithm}
             \item<3> Split($k$, $S$):
                 \begin{algorithm}[H]
-                % TODO?
                     \tcp{Übungsaufgabe ;-)}
                 \end{algorithm}
         \end{itemize}
@@ -314,11 +313,6 @@
             \item $X = P \cup T \cup B$
             \item $D_t^p = H_p + H_t - H_{p+t}$
         \end{itemize}
-        % \item Spiel E % TODO: Spiel E weglassen, da nicht verwendet?
-        % \begin{itemize}
-            % \item $X = P \cup T \cup S \cup B$
-            % \item<14-> $E_{t,s}^p = \frac t{t+s} + (H_{s+p} - H_s) - (H_{t+s+p} - H_{t+s})$
-        % \end{itemize}
     \end{itemize}
 \end{frame}
 \begin{frame}{Laufzeitanalyse}
@@ -357,7 +351,6 @@
     \uncover<+->{Die Knoten in $X_\leq$ entlang des Suchpfads von $x$ sind genau die, die beim Einfügen am größten sind.}
 
     \uncover<+->{$\Rightarrow$ Spiel A mit $P = X_\leq, B = X \setminus X_\leq$ ($|P| = r, |B| = n - r$)}
-    %TODO Aufgabe: Wie mit Spiel C?
 
     \uncover<+->{$\Rightarrow$ Erwarteter Wert: $H_r$}
 
@@ -394,7 +387,7 @@
 \begin{frame}{Fazit}
     Erwartete Laufzeiten bei Treaps:
     \begin{table}
-    	\resizebox{10 cm}{!}{ % TODO: Laufzeiten Binärbaum
+        \resizebox{10 cm}{!}{
         \begin{tabular}{l | c | c }
         Methode & Treap & Binärbaum\\
         \hline
@@ -426,6 +419,10 @@
 
     \vspace{1em}
     \hfill\only<7->{\textbf{\Large Fragen?}}\hspace{3em}
+\end{frame}
+\begin{frame}{Aufgaben}
+    % TODO: Delete
+    % TODO: Spiel C -> Laufzeitanalyse -- Tiefe
 \end{frame}
 
 % \section{Skip-Lists}
