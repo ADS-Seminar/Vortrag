@@ -383,7 +383,7 @@
 \end{frame}
 
 
-\section*{Fazit}
+\section{Fazit}
 \begin{frame}{Fazit}
     Erwartete Laufzeiten bei Treaps:
     \begin{table}
@@ -422,7 +422,37 @@
 \end{frame}
 \begin{frame}{Aufgaben}
     % TODO: Delete
+    Löschen Sie den Knoten mit Schlüssel $4$ aus dem folgenden Treap!
+
+    \vspace{2em}
+    \includegraphics<+>[page=1]{img/Aufgabe_Delete.pdf}
+    \includegraphics<+>[page=2]{img/Aufgabe_Delete.pdf}
+    \includegraphics<+>[page=3]{img/Aufgabe_Delete.pdf}
+    \includegraphics<+>[page=4]{img/Aufgabe_Delete.pdf}
+    \includegraphics<+>[page=5]{img/Aufgabe_Delete.pdf}
+    \includegraphics<+>[page=6]{img/Aufgabe_Delete.pdf}
+    \includegraphics<+>[page=7]{img/Aufgabe_Delete.pdf}
+\end{frame}
+\begin{frame}{Aufgaben}
     % TODO: Spiel C -> Laufzeitanalyse -- Tiefe
+    Die erwartete Tiefe eines Knotens $x$ mit Rang $r$ wurde mit Hilfe des Spiels A analysiert.
+    Wie könnte man sie auch mit Spiel C analysieren?
+
+    \vspace{1em}
+    \includegraphics<+>[page=10,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+    \includegraphics<+->[page=11,width=\textwidth]{./img/Laufzeit_Beweis.pdf}
+
+    \vspace{3em}
+    \begin{columns}<.(-1)->
+    \begin{column}{.5\textwidth}<.(-1)->
+        Spiel A: $X = P \cup B$
+    \end{column}
+    \begin{column}{.5\textwidth}<.(-1)->
+        Spiel C: $X = P \cup S \cup B$
+
+        \visible<+(-1)->{S = \{x\}}
+    \end{column}
+    \end{columns}
 \end{frame}
 
 % \section{Skip-Lists}

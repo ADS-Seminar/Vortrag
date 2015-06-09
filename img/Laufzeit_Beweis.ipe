@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70005" creator="Ipe 7.1.5">
-<info created="D:20150510145008" modified="D:20150604011455" author="Moritz  Beck" subject="Beispiel Treap"/>
+<ipe version="70107" creator="Ipe 7.1.7">
+<info created="D:20150510145008" modified="D:20150609233420" author="Moritz  Beck" subject="Beispiel Treap"/>
 <preamble>\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}</preamble>
 <ipestyle name="basic">
@@ -225,6 +225,7 @@ h
 <layer name="theta"/>
 <layer name="iota"/>
 <layer name="kappa"/>
+<layer name="lambda"/>
 <view layers="alpha" active="alpha"/>
 <view layers="alpha beta" active="beta"/>
 <view layers="alpha beta gamma" active="gamma"/>
@@ -235,6 +236,7 @@ h
 <view layers="alpha beta gamma delta epsilon zeta eta theta" active="theta"/>
 <view layers="alpha beta gamma delta epsilon zeta eta theta iota" active="iota"/>
 <view layers="alpha beta gamma delta epsilon zeta eta theta iota kappa" active="kappa"/>
+<view layers="alpha beta gamma delta epsilon zeta eta theta iota lambda" active="lambda"/>
 <path layer="gamma" matrix="1 0 0 1 -64 -16" stroke="black" fill="white">
 11.2185 0 0 11.2185 128 768 e
 </path>
@@ -297,7 +299,10 @@ h
 <path layer="eta" matrix="1 0 0 1 56.5086 -112" stroke="black" fill="white">
 11.2185 0 0 11.2185 128 768 e
 </path>
-<text matrix="1 0 0 1 -137.902 -125.992" transformations="translations" pos="320 784" stroke="key" type="label" width="4.981" height="6.42" depth="0" valign="baseline">6</text>
+<path layer="lambda" matrix="1 0 0 1 56.5086 -112" stroke="red" fill="white" pen="fat">
+11.2185 0 0 11.2185 128 768 e
+</path>
+<text layer="eta" matrix="1 0 0 1 -137.902 -125.992" transformations="translations" pos="320 784" stroke="key" type="label" width="4.981" height="6.42" depth="0" valign="baseline">6</text>
 <text matrix="1 0 0 1 -153.902 -119.767" transformations="translations" pos="336 768" stroke="priority" type="label" width="4.981" height="6.42" depth="0" valign="baseline">3</text>
 <path matrix="1 0 0 1 -64 0" stroke="black" arrow="normal/normal">
 230.037 694.544 m
@@ -339,7 +344,6 @@ h
 <text layer="delta" matrix="1 0 0 1 5.7043 30.9225" transformations="translations" pos="400 752" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">5</text>
 <text layer="epsilon" matrix="1 0 0 1 5.07049 -11.4086" transformations="translations" pos="432 672" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">8</text>
 <text layer="zeta" matrix="1 0 0 1 5.7043 -2.53524" transformations="translations" pos="464 688" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">1</text>
-<text layer="eta" matrix="1 0 0 1 5.7043 37.2252" transformations="translations" pos="496 768" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">6</text>
 <text layer="theta" matrix="1 0 0 1 6.33811 13.4648" transformations="translations" pos="528 720" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">3</text>
 <text layer="iota" matrix="1 0 0 1 5.07049 -26.141" transformations="translations" pos="560 688" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">9</text>
 <path layer="gamma" stroke="black">
@@ -404,7 +408,7 @@ h
 496 656 l
 h
 </path>
-<text matrix="1 0 0 1 5.7043 30.9225" transformations="translations" pos="400 752" stroke="blue" type="label" valign="baseline" size="LARGE">5</text>
+<text matrix="1 0 0 1 5.7043 30.9225" transformations="translations" pos="400 752" stroke="blue" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">5</text>
 <path stroke="blue" pen="ultrafat">
 400 777.063 m
 400 656 l
@@ -412,7 +416,7 @@ h
 416 777.063 l
 h
 </path>
-<text matrix="1 0 0 1 5.7043 21.2252" transformations="translations" pos="304 736" stroke="blue" type="label" valign="baseline" size="LARGE">4</text>
+<text matrix="1 0 0 1 5.7043 21.2252" transformations="translations" pos="304 736" stroke="blue" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">4</text>
 <path stroke="blue" pen="ultrafat">
 320 656 m
 320 752 l
@@ -420,5 +424,42 @@ h
 304 656 l
 h
 </path>
+<path layer="lambda" matrix="-1 0 0 1 319.929 -0.313581" stroke="blue" pen="ultrafat" arrow="normal/normal">
+183.107 793.161 m
+135.568 760.281 l
+</path>
+<path matrix="1 0 0 1 64 0" stroke="blue" pen="ultrafat" rarrow="normal/normal">
+100.349 714.341 m
+119.303 744.913 l
+</path>
+<path matrix="1 0 0 1 -64 0" stroke="blue" pen="ultrafat" arrow="normal/normal">
+230.037 694.544 m
+243.121 665.84 l
+</path>
+<path stroke="red" pen="ultrafat">
+512 656 m
+512 800 l
+496 800 l
+496 656 l
+h
+</path>
+<text matrix="1 0 0 1 5.7043 30.9225" transformations="translations" pos="400 752" stroke="blue" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">5</text>
+<path stroke="blue" pen="ultrafat">
+400 777.063 m
+400 656 l
+416 656 l
+416 777.063 l
+h
+</path>
+<text matrix="1 0 0 1 5.7043 21.2252" transformations="translations" pos="304 736" stroke="blue" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">4</text>
+<path stroke="blue" pen="ultrafat">
+320 656 m
+320 752 l
+304 752 l
+304 656 l
+h
+</path>
+<text layer="eta" matrix="1 0 0 1 5.7043 37.2252" transformations="translations" pos="496 768" stroke="black" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">6</text>
+<text layer="lambda" matrix="1 0 0 1 5.7043 37.2252" transformations="translations" pos="496 768" stroke="red" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">6</text>
 </page>
 </ipe>
