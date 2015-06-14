@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70107" creator="Ipe 7.1.7">
-<info created="D:20150604193151" modified="D:20150609153313"/>
+<info created="D:20150604193151" modified="D:20150614232721"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -359,31 +359,31 @@ h
 </path>
 <text matrix="1 0 0 1 44.7182 -51.6921" transformations="translations" pos="255.657 678.038" stroke="red" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">5</text>
 <text matrix="1 0 0 1 45.9489 -50.4614" transformations="translations" pos="254.426 662.039" stroke="blue" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">2</text>
-<path layer="beta_trans" matrix="1 0 0 1 -10.5686 10.5686" stroke="red" pen="heavier" arrow="normal/normal" rarrow="normal/normal">
-256 640 m
-288 608 l
-</path>
 <path layer="gamma" stroke="black">
 16 0 0 16 256 672 e
 </path>
 <text matrix="1 0 0 1 -3.28183 -3.69206" transformations="translations" pos="255.657 678.038" stroke="red" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">5</text>
 <text matrix="1 0 0 1 -1.94742 -2.46137" transformations="translations" pos="254.426 662.039" stroke="blue" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">2</text>
-<path layer="delta" matrix="1 0 0 1 48 -48" stroke="black">
+<path layer="beta_trans" matrix="-1 0 0 1 470.627 -48" stroke="red" pen="heavier" arrow="normal/normal">
+192 688 m
+22.6274 0 0 -22.6274 208 672 230.627 672 a
+</path>
+<path layer="delta" matrix="1 0 0 1 48 -48" stroke="black" arrow="normal/normal">
+195.593 709.897 m
+168.635 685.47 l
+</path>
+<path matrix="1 0 0 1 -48 -48" stroke="black">
 16 0 0 16 256 672 e
 </path>
-<path matrix="1 0 0 1 48 -48" stroke="black" arrow="normal/normal">
-220.389 709.876 m
-246.724 685.037 l
-</path>
-<text matrix="1 0 0 1 44.7182 -51.6921" transformations="translations" pos="255.657 678.038" stroke="red" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">4</text>
-<text matrix="1 0 0 1 42.5518 -50.4614" transformations="translations" pos="254.426 662.039" stroke="blue" type="label" width="15.791" height="11.097" depth="0" valign="baseline" size="LARGE">13</text>
-<path layer="gamma_trans" stroke="red" pen="ultrafat">
-288 640 m
-320 608 l
-</path>
-<path stroke="red" pen="ultrafat">
+<text matrix="1 0 0 1 -51.2818 -51.6921" transformations="translations" pos="255.657 678.038" stroke="red" type="label" width="7.895" height="11.097" depth="0" valign="baseline" size="LARGE">4</text>
+<text matrix="1 0 0 1 -53.4482 -50.4614" transformations="translations" pos="254.426 662.039" stroke="blue" type="label" width="15.791" height="11.097" depth="0" valign="baseline" size="LARGE">13</text>
+<path layer="gamma_trans" matrix="1 0 0 1 -96 0" stroke="red" pen="ultrafat">
 288 608 m
 320 640 l
+</path>
+<path matrix="1 0 0 1 -96 0" stroke="red" pen="ultrafat">
+288 640 m
+320 608 l
 </path>
 </page>
 </ipe>
